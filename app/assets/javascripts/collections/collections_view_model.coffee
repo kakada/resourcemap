@@ -5,14 +5,16 @@ onCollections ->
     @constructor: (collections) ->
       @collections = ko.observableArray $.map(collections, (x) -> new Collection(x))
       @currentCollection = ko.observable()
-      @fullscreen = ko.observable(false)
-      @fullscreenExpanded = ko.observable(false)
+      @fullscreen = ko.observable(true)
+      @fullscreenExpanded = ko.observable(true)
       @currentSnapshot = ko.computed =>
         @currentCollection()?.currentSnapshot
 
       # Make sure to resize the map and keep its center when entering/exiting fullscreen
       @fullscreen.subscribe @refreshMapResize
       @fullscreenExpanded.subscribe @refreshMapResize
+
+      $("body").addClass("fullscreen")
 
     @findCollectionById: (id) -> (x for x in @collections() when x.id == id)[0]
 
