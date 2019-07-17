@@ -16,10 +16,12 @@ class Ability
 
     # User can read collection if she is a collection member or if the collection is public
     can [:read, :sites_by_term, :search, :sites_info, :current_user_membership], Collection, :memberships => { :user_id => user.id }
+    can [:read, :sites_by_term, :search, :sites_info, :current_user_membership, :export],  Collection, :public => true
     can [:sites_by_term, :search, :sites_info, :current_user_membership, :export], Collection, :anonymous_name_permission => "read"
     # Permission to read collection was allowing guest to see settings page
     can :read, Collection, :anonymous_name_permission => "read" unless format && format.html?
 
+    can [:search, :index], Site, :collection => {:public => true}
     can [:search, :index], Site, :collection => {:anonymous_name_permission => "read"}
     can [:search, :index], Site, :collection => {:memberships => { :user_id => user.id }}
     can :delete, Site, :collection => {:memberships => { :user_id => user.id , :admin => true } }
@@ -37,6 +39,7 @@ class Ability
 
     ### Layer ###
     can :read, Layer, :anonymous_user_permission => "read"
+    can :read, Layer, :collection => {:public => true}
 
     if !user.is_guest
       # A user may read a layer if she's the collection administrator...

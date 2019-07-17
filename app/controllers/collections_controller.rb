@@ -1,5 +1,4 @@
 class CollectionsController < ApplicationController
-
   authorize_resource :except => [:render_breadcrumbs], :decent_exposure => true, :id_param => :collection_id
 
   # we cannot call this exposure 'collections' becuause if we do,
@@ -7,9 +6,19 @@ class CollectionsController < ApplicationController
   # and (becuase of collections is loaded using a JOIN)
   # then the "collection" is going to have a readonly=true value
   # https://github.com/rails/rails/pull/10769 && https://github.com/ryanb/cancan/issues/357
-  expose(:accessible_collections) { Collection.accessible_by(current_ability)}
+  # expose(:accessible_collections) { Collection.accessible_by(current_ability)}
 
-  expose(:collections_with_snapshot) { select_each_snapshot(accessible_collections.uniq) }
+  expose(:collections){
+    if current_user && !current_user.is_guest
+      # public collections are accesible by all users
+      # here we only need the ones in which current_user is a member
+      current_user.collections
+    else
+      Collection.all
+    end
+  }
+
+  expose(:collections_with_snapshot) { select_each_snapshot(collections.uniq) }
 
   before_filter :show_collections_breadcrumb, :only => [:index, :new]
   before_filter :show_collection_breadcrumb, :except => [:index, :new, :create, :render_breadcrumbs]
@@ -19,17 +28,20 @@ class CollectionsController < ApplicationController
     # Keep only the collections of which the user is membership
     # since the public ones are accessible also, but should not be listed in the collection's view
     user_memberships = current_user.memberships.map{|c| c.collection_id.to_s}
-    collections_with_snapshot_by_user = collections_with_snapshot.select{|col| user_memberships.include?(col["id"].to_s)}
+    collections = collections_with_snapshot.select{|col| user_memberships.include?(col["id"].to_s)}
 
     add_breadcrumb _("Collections"), 'javascript:window.model.goToRoot()'
-    respond_to do |format|
-      format.html do
-        if current_user.is_guest
-          redirect_to_login if !params[:collection_id].present? || !collection.public?
-        end
+    if current_user.is_guest
+      if params[:collection_id] && !collection.public?
+        flash[:error] = "You need to sign in order to view this collection"
+        redirect_to_login
+        return
       end
-
-      format.json { render_json collections_with_snapshot_by_user }
+      collections = Collection.public_collections
+    end
+    respond_to do |format|
+      format.html
+      format.json { render json:  collections}
     end
   end
 

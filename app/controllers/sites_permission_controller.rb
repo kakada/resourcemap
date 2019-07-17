@@ -3,7 +3,7 @@ class SitesPermissionController < ApplicationController
 
   def index
     membership = current_user.membership_for_collection(collection)
-    render_json membership.sites_permission
+    render_json json: membership.try(:sites_permission)
   end
 
   def create

@@ -17,17 +17,17 @@
 
 - content_for :navigation do
   = section _("Home"), root_path(explicit: true), :home
+  = section _("Collections"), collections_path, :collections
   - if user_signed_in?
     - if !current_user.is_guest
-      = section _("Collections"), collections_path, :collections
       = section _("Activity"), activities_path, :activities
       - if Settings.is_on? :channels
         = section _("SMS Gateways"), gateways_path, :gateways
       - if current_user.is_super_user
         = section _("Quota"), quotas_path, :quotas
-  -#= section "Tour", '', :tour
-  -#= section "Community", '', :community
-  -#= section "Help", '', :help
+  -# = section "Tour", '', :tour
+  -# = section "Community", '', :community
+  -# = section "Help", '', :help
 - content_for :right_menu do
   %ul.RightMenu
     - if current_user && !current_user.is_guest

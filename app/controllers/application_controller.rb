@@ -32,16 +32,18 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    respond_to do |format|
-      format.html {
-        if current_user.is_guest
-          authenticate_user!
-        else
-         render :file => '/error/doesnt_exist_or_unauthorized', :alert => exception.message, :status => :forbidden
-        end
-      }
-      format.json { render_json({ message: "Access Denied"}, status: :forbidden) }
-    end
+    p 'can can access denie'
+    # respond_to do |format|
+    #   format.html {
+    #     if current_user.is_guest
+    #       p 'here'
+    #       authenticate_user!
+    #     else
+    #       render :file => '/error/doesnt_exist_or_unauthorized', :alert => exception.message, :status => :forbidden
+    #     end
+    #   }
+    format.json { render_json({ message: "Access Denied"}, status: :forbidden) }
+    # end
   end
 
   def guest_user

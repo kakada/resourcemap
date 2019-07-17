@@ -16,6 +16,7 @@ onCollections ->
       # Make sure to resize the map and keep its center when the left column's width changes
       @expandLeftColumn.subscribe @refreshMapResize
 
+
     @loadBreadCrumb: ->
       params = {}
       if @selectedSite()
@@ -69,7 +70,6 @@ onCollections ->
         siteSearchCount = @currentCollection().siteSearchCount()
         @currentCollection(site.collection)
         @currentCollection().siteSearchCount(siteSearchCount)
-
         @loadBreadCrumb()
 
     @editSiteFromId: (siteId, collectionId) ->

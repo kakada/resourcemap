@@ -34,7 +34,7 @@
   .tableheader
     .title
       - if can? :index, Collection
-        %button.pback{ko(click: '$root.goToRoot'), type: 'button', style: "#{if current_user.is_guest then 'visibility: hidden;margin-left: -20px;' end}"}
+        %button.pback{ko(click: '$root.goToRoot'), type: 'button'}
       %span{ko(text: :name, attr: {title: :name})}
       - #if can? :show, collection
       - if !current_user.is_guest

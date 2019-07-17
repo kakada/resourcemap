@@ -59,6 +59,10 @@ class Collection < ActiveRecord::Base
     end
   end
 
+  def self.public_collections
+    Collection.where(:public => true)
+  end
+
   def public?
     anonymous_name_permission == "read" && anonymous_location_permission == "read"
   end
@@ -113,6 +117,7 @@ class Collection < ActiveRecord::Base
 
   def visible_layers_for(user, options = {})
     current_ability = Ability.new(user)
+    p 'current_ability : ', current_ability
 
     if options[:snapshot_id]
       date = Snapshot.where(id: options[:snapshot_id]).first.date

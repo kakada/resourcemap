@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311182551) do
+ActiveRecord::Schema.define(version: 20190715023334) do
 
   create_table "activities", force: true do |t|
     t.integer  "user_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160311182551) do
     t.string   "logo"
     t.string   "anonymous_name_permission",                              default: "none"
     t.string   "anonymous_location_permission",                          default: "none"
+    t.boolean  "public"
   end
 
   create_table "field_histories", force: true do |t|

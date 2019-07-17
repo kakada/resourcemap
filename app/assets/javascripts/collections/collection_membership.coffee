@@ -24,9 +24,10 @@ onCollections ->
 
 
       $.get "/collections/#{@id}/current_user_membership.json", {}, (membership) =>
-        @namePermission = membership.name
-        @locationPermission = membership.location
-        @createSitePermission(@namePermission == "update" && @locationPermission == "update")
+        if(membership)
+          @namePermission = membership.name
+          @locationPermission = membership.location
+          @createSitePermission(@namePermission == "update" && @locationPermission == "update")
         if loaded
           @membershipInitialized = true
           callback() if typeof(callback) is 'function'
