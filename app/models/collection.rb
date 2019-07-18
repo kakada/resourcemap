@@ -117,7 +117,6 @@ class Collection < ActiveRecord::Base
 
   def visible_layers_for(user, options = {})
     current_ability = Ability.new(user)
-    p 'current_ability : ', current_ability
 
     if options[:snapshot_id]
       date = Snapshot.where(id: options[:snapshot_id]).first.date

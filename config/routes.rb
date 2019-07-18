@@ -8,7 +8,7 @@ ResourceMap::Application.routes.draw do
     # We define here a route inside the locale thats just saves the current locale in the session
     get 'omniauth/:provider' => 'omniauth#localized', as: :localized_omniauth
 
-    devise_for :users, skip: :omniauth_callbacks, controllers: {registrations: "registrations", sessions: 'sessions'}
+    devise_for :users, :skip => :omniauth_callbacks, controllers: {registration: 'registrations', sessions: 'sessions'}, path_names: { sign_up: '', sign_out: 'logout'}
     guisso_for :user
 
     devise_scope :user do
@@ -145,7 +145,7 @@ ResourceMap::Application.routes.draw do
     end
 
     match '/locale/update' => 'locale#update',  :as => 'update_locale', :via => [:get, :post]
-    root :to => 'home#index'
+    root :to => 'collections#index'
   end
 
   scope '/plugin' do

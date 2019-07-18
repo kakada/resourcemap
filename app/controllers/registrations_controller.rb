@@ -3,11 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     super
   end
-
-  def create
-    super
-  end
-
+  
   def validate_credentials
     if !(params.has_key?(:user) && params.has_key?(:password))
       render_json({ message: _("Invalid parameters. Parameters should include 'user' and 'password'.")}, status: :bad_request)

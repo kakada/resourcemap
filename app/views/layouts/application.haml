@@ -16,7 +16,7 @@
     });
 
 - content_for :navigation do
-  = section _("Home"), root_path(explicit: true), :home
+  -# = section _("Home"), root_path(explicit: true), :home
   = section _("Collections"), collections_path, :collections
   - if user_signed_in?
     - if !current_user.is_guest
@@ -47,8 +47,8 @@
       %li
         = link_to '', edit_user_registration_path, class: 'fsettings'
     - else
-      %li
-        = link_to _("Create account"), guisso_sign_up_path_for(:user), class: 'fedit'
+      -# %li
+        -# = link_to _("Create account"), guisso_sign_up_path_for(:user), class: 'fedit'
       %li
         = link_to _("Log in"), guisso_sign_in_path_for(:user), class: 'fuser'
 
