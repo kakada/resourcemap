@@ -141,6 +141,11 @@
           margin-left:4px;
           overflow: hidden;
           text-overflow:ellipsis;
+          line-height: 20px;
+          white-space: normal;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
         }
         &.with_snapshot .collectionName {
           width:208px;
@@ -458,18 +463,43 @@
 body.fullscreen {
 
   @media screen and (min-height: 500px) {
-    .cheight.tablescroll, .cheight#map { height: 385px !important; }
+    .cheight.tablescroll{ height: 376px !important; }
+    .cheight#map { height: 440px !important; }
+    #instedd-pulldown {
+      margin: 500px 0px 0px 15px;
+    }
   }
 
   @media screen and (min-height: 650px) {
-    .cheight.tablescroll, .cheight#map { height: 550px !important; }
+    .cheight.tablescroll{ height: 510px !important; }
+    .cheight#map{ height: 590px !important; }
+    #instedd-pulldown {
+      margin: 634px 0px 0px 15px;
+    }
   }
 
   @media screen and (min-height: 700px) {
-    .cheight.tablescroll, .cheight#map { height: 600px !important; }
+    .cheight.tablescroll{ height: 585px !important; }
+    .cheight#map { height: 650px !important; }
+    #instedd-pulldown {
+      margin: 690px 0px 0px 15px;
+    }
   }
   @media screen and (min-height: 800px) {
-    .cheight.tablescroll, .cheight#map { height: 705px !important; }
+    .cheight.tablescroll{ height: 688px !important; }
+    .cheight#map { height: 750px !important; }
+    #instedd-pulldown {
+      margin: 794px 0px 0px 17px;
+    }
+  }
+  @media screen and (min-height: 900px) {
+    .cheight.tablescroll {
+      height: 780px !important;
+    }
+    .cheight#map { height: 858px !important; }
+    #instedd-pulldown {
+      margin: 903px 0px 0px 17px;
+    }
   }
 
 }

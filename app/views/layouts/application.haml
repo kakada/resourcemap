@@ -15,6 +15,9 @@
       $.handleAjaxError(xhr)
     });
 
+- content_for :left_menu do
+  %span Agri-SMEs Linkages
+
 - content_for :navigation do
   -# = section _("Home"), root_path(explicit: true), :home
   = section _("Collections"), collections_path, :collections
