@@ -22,9 +22,10 @@
           %button.enterRow.farrow{ko(click: '$root.enterCollection'), type: :button}
         %td.l.timeago{ko(attr: {title: :updatedAt}, text: :updatedAtTimeago)}
       //ko
-.tablebottom{ko(click: '$root.createCollection'), style: 'cursor: pointer'}
-  %button.cadd{type: "button"}
-  %span.createCollection Create Collection
+- if can? :create, Collection
+  .tablebottom{ko(click: '$root.createCollection'), style: 'cursor: pointer'}
+    %button.cadd{type: "button"}
+    %span.createCollection Create Collection
 //ko
 
 -# Collection sites
