@@ -3,7 +3,6 @@
 .tableheader.expanded
   .title My Collections
   .mapheader.right
-    %button.icon_button.right{ko(click: '$root.togglefullscreen', css: {frestore: '$root.fullscreen()', ffullscreen: '!$root.fullscreen()'}) }
     %button.icon_button.ftable.right{ko(click: '$root.showTable', css: "{active: !$root.showingMap()}")}
     %button.icon_button.fmap.right{ko(click: '$root.showMap', css: "{active: $root.showingMap()}")}
     %br{clear: "all"}
@@ -40,7 +39,6 @@
       %button.fconfiguration.right{ko(click: '$root.editCollection'), type: 'button', style: 'margin-right:8px;margin-top:6px;'}
   = render 'collections/index/export'
   .mapheader.right
-    %button.icon_button.right{ko(click: '$root.togglefullscreen', css: {frestore: '$root.fullscreen()', ffullscreen: '!$root.fullscreen()'}) }
     %button.icon_button.ftable.right{ko(click: '$root.showTable', css: {active: "!$root.showingMap()"})}
     %button.icon_button.fmap.right{ko(click: '$root.showMap', css: {active: "$root.showingMap()"})}
     %br{clear: "all"}

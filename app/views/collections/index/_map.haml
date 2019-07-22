@@ -266,14 +266,14 @@
       %span Loading...
 #right-panel.right.sites{ko(css: { wp70: '!expandLeftColumn()', wp50: 'expandLeftColumn()' })}
   .mapheader
-    /ko if: $root.currentCollection()
-    = render 'collections/index/export'
-    //ko
+    - if !current_user.is_guest
+      /ko if: $root.currentCollection()
+      = render 'collections/index/export'
+      //ko
     %span{ko(text: :mapSitesCountText)}
     - if Settings.is_on? :alerts
       - Plugin.all.each do |plugin|
         = render_plugin_hook plugin, :map_header
-    %button.icon_button.right{ko(click: '$root.togglefullscreen', css: {frestore: '$root.fullscreen()', ffullscreen: '!$root.fullscreen()'}) }
     /ko if: !editingSite()
     %button.icon_button.ftable.right{ko(click: '$root.showTable', css: {active: "!$root.showingMap()"})}
     %button.icon_button.fmap.right{ko(click: '$root.showMap', css: {active: "$root.showingMap()"})}
