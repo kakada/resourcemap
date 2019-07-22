@@ -6,19 +6,9 @@ class CollectionsController < ApplicationController
   # and (becuase of collections is loaded using a JOIN)
   # then the "collection" is going to have a readonly=true value
   # https://github.com/rails/rails/pull/10769 && https://github.com/ryanb/cancan/issues/357
-  # expose(:accessible_collections) { Collection.accessible_by(current_ability)}
+  expose(:accessible_collections) { Collection.accessible_by(current_ability)}
 
-  expose(:collections){
-    if current_user && !current_user.is_guest
-      # public collections are accesible by all users
-      # here we only need the ones in which current_user is a member
-      current_user.collections
-    else
-      Collection.all
-    end
-  }
-
-  expose(:collections_with_snapshot) { select_each_snapshot(collections.uniq) }
+  expose(:collections_with_snapshot) { select_each_snapshot(accessible_collections.uniq) }
 
   before_filter :show_collections_breadcrumb, :only => [:index, :new]
   before_filter :show_collection_breadcrumb, :except => [:index, :new, :create, :render_breadcrumbs]
