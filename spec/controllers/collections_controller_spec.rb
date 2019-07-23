@@ -17,6 +17,7 @@ describe CollectionsController, :type => :controller do
   def make_public(collection)
     collection.anonymous_location_permission = 'read'
     collection.anonymous_name_permission = 'read'
+    collection.public = true
     collection.save
   end
 
@@ -155,12 +156,12 @@ describe CollectionsController, :type => :controller do
 
       # This is a regression test to ensure this leak
       # doesn't get back: https://github.com/instedd/resourcemap/blob/26d529aa457bd16e408fe99e6496853d63b7f806/app/controllers/collections_controller.rb#L24
-      it "should redirect guest user to log in if she tries to list search collections by name" do
+      it "should show public collections if guest user tries to list search collections by name" do
         collection.name = "Foo"
         make_private collection
-
         get :index, name: "Foo"
-        expect_redirect_to_login(response)
+        # expect_redirect_to_login(response)
+        expect(response.status).to eq(200)
       end
 
       it "should redirect guest user to log in if she tries to access a non-public collection" do
@@ -184,10 +185,10 @@ describe CollectionsController, :type => :controller do
       end
 
       # Issue #661
-      it "should not get public collection's settings page being a guest user" do
+      it "should get public collection's settings page being a guest user" do
         make_public(collection)
         get :show, format: 'html', id: collection.id
-        expect(response).to redirect_to '/users/sign_in'
+        expect(response.status).to eq(200)
       end
     end
 
