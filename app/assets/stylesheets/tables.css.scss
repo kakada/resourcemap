@@ -250,7 +250,7 @@
 
 .tablebottom {
   color: #555555;
-  height: 30px;
+  height: 70px;
   padding: 5px;
 
   .cadd {
@@ -463,43 +463,51 @@
 body.fullscreen {
 
   @media screen and (min-height: 500px) {
-    .cheight.tablescroll{ height: 376px !important; }
-    .cheight#map { height: 440px !important; }
-    #instedd-pulldown {
-      margin: 500px 0px 0px 15px;
+    #collections-main {
+      height: 91%;
     }
+    .cheight.tablescroll{ height: 370px !important; }
+    .cheight#map { height: 428px !important; }
+  }
+
+  @media screen and (min-height: 600px) {
+    #collections-main {
+      height: 85%;
+    }
+    .cheight.tablescroll{ height: 436px !important; }
+    .cheight#map{ height: 504px !important; }
   }
 
   @media screen and (min-height: 650px) {
-    .cheight.tablescroll{ height: 510px !important; }
-    .cheight#map{ height: 590px !important; }
-    #instedd-pulldown {
-      margin: 634px 0px 0px 15px;
+    #collections-main {
+      height: 87%;
     }
+    .cheight.tablescroll{ height: 475px !important; }
+    .cheight#map{ height: 545px !important; }
   }
 
   @media screen and (min-height: 700px) {
-    .cheight.tablescroll{ height: 585px !important; }
-    .cheight#map { height: 650px !important; }
-    #instedd-pulldown {
-      margin: 690px 0px 0px 15px;
+    #collections-main {
+      height: 88%;
     }
+    .cheight.tablescroll{ height: 518px !important; }
+    .cheight#map { height: 586px !important; }
   }
   @media screen and (min-height: 800px) {
-    .cheight.tablescroll{ height: 688px !important; }
-    .cheight#map { height: 750px !important; }
-    #instedd-pulldown {
-      margin: 794px 0px 0px 17px;
+    #collections-main {
+      height: 88%;
     }
+    .cheight.tablescroll{ height: 635px !important; }
+    .cheight#map { height: 702px !important; }
   }
   @media screen and (min-height: 900px) {
+    #collections-main {
+      height: 91%;
+    }
     .cheight.tablescroll {
-      height: 780px !important;
+      height: 763px !important;
     }
-    .cheight#map { height: 858px !important; }
-    #instedd-pulldown {
-      margin: 903px 0px 0px 17px;
-    }
+    .cheight#map { height: 825px !important; }
   }
 
 }

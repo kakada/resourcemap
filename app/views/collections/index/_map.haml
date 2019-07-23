@@ -22,10 +22,12 @@
         //ko
     %br{:clear => "all"}/
 
-  - if can? :create, Collection
-    .tablebottom{ko(click: '$root.createCollection')}
-      %button.cadd{type: "button"}
-      %span.createCollection Create Collection
+  .tablebottom
+    - if can? :create, Collection
+      %div{ko(click: '$root.createCollection')}
+        %button.cadd{type: "button"}
+        %span.createCollection Create Collection
+    %div.insteddPlatform
   //ko
 
   -# Collection sites
@@ -65,6 +67,7 @@
       %button.flocation{ko(click: '$root.createSite')} Create Site
       //ko
     //ko
+    %div.insteddPlatform{style: "background: url('#{InsteddRails.url}/theme/images/header/InSTEDDPlatform.png')  no-repeat left top"}
 
   //ko
   //ko
