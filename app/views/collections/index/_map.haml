@@ -4,7 +4,9 @@
   -# Collections
   /ko if: !currentCollection() && !editingSite()
   .tableheader
-    .title My Collections
+    %div
+      %img{ko(attr: {src: "'#{InsteddRails.url}/theme/images/header/logos/resourceMap.png'"}), style: "margin-top: 5px;", width: 100}
+      -# .title{style: "display: inline;"} Agri-SMEs Linkages
   .tablescroll.cheight.sites
     %table.GralTable.CleanTable
       %tbody
@@ -67,7 +69,7 @@
       %button.flocation{ko(click: '$root.createSite')} Create Site
       //ko
     //ko
-    %div.insteddPlatform{style: "background: url('#{InsteddRails.url}/theme/images/header/InSTEDDPlatform.png')  no-repeat left top"}
+    %div.insteddPlatform
 
   //ko
   //ko

@@ -412,13 +412,6 @@ td.loadmore { height: 36px }
 
 .GralTable button.farrow { margin: 3px 2px !important;}
 
-#instedd-pulldown li{
-  background: url(#{$InsteddRailsUrl + "/theme/images/header/logos/resourceMap.png"});
-  width: 100px;
-  min-height: 18px;
-  background-size: 100px 25px;
-}
-
 .createCollection { color: #3d73ad; }
 .insteddPlatform {
   background: url(#{$InsteddRailsUrl + "/theme/images/header/InSTEDDPlatform.png"}) no-repeat left top;
