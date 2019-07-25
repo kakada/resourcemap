@@ -278,6 +278,27 @@
       - Plugin.all.each do |plugin|
         = render_plugin_hook plugin, :map_header
     /ko if: !editingSite()
+    %ul.RightMenu.right
+      - if current_user && !current_user.is_guest
+        %li
+          #User{ko(click: '$root.toggleUserDropDown')}
+            = current_user.email
+            %br
+            %br
+            .container{style: "margin-left: -75.5px;"}
+              .band{style: "margin-left: auto; margin-right: auto; width: 147px;"}
+              %ul
+                %li= link_to _('Settings'), edit_user_registration_path
+              %hr/
+              %ul
+                %li
+                  %a{:href => "mailto:support@instedd.org?subject=[#{application_name.underscore}-bug]"} Report a bug
+                %li= link_to _("Sign out"), destroy_session_path(:user), method: :delete
+        %li
+          = link_to '', edit_user_registration_path, class: 'fsettings'
+      - else
+        %li
+          = link_to _("Log in"), guisso_sign_in_path_for(:user), class: 'fuser'
     %button.icon_button.ftable.right{ko(click: '$root.showTable', css: {active: "!$root.showingMap()"})}
     %button.icon_button.fmap.right{ko(click: '$root.showMap', css: {active: "$root.showingMap()"})}
     //ko

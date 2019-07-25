@@ -705,3 +705,11 @@ select.compare {
     width: inherit;
   }
 }
+
+.RightMenu.right {
+  position: relative;
+}
+
+.RightMenu.right #User{
+  margin-top: 0px !important;
+}

@@ -19,6 +19,7 @@ onCollections ->
       @ghostMarkers = []
       @mapRequestNumber = 0
       @geocoder = new google.maps.Geocoder()
+      @isShowUserSetting = ko.observable(false)
 
       $.each @collections(), (idx) =>
         @collections()[idx].checked.subscribe (newValue) =>
@@ -419,6 +420,13 @@ onCollections ->
       count += 1 if @selectedSite()
       @mapSitesCount count
 
+    @toggleUserDropDown: ->
+      if @isShowUserSetting()
+        $('ul li div#User').removeClass('open')
+      else
+        $('ul li div#User').addClass('open')
+      @isShowUserSetting(!@isShowUserSetting())
+
     @showTable: ->
       @queryParams = $.url().param()
       @exitSite() if @editingSite()
@@ -486,4 +494,3 @@ onCollections ->
 
       if options.defaultDate?
         $(".ux-datepicker").datepicker('setDate', options.defaultDate)
-

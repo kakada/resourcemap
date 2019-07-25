@@ -1,4 +1,5 @@
 .fullscreen {
+  background: none;
   #wrapper,
   #collections-main {
     height:91%;
@@ -14,6 +15,7 @@
     padding-top: 10px;
   }
 
+  #toolbar,
   #header,
   #footer-span {
     display:none;
