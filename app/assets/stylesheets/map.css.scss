@@ -219,6 +219,8 @@ label.error.field-name {
 }
 
 #refine-container {
+  margin-top: 11px;
+  margin-bottom: -11px;
   li.superblyTagItem {
     float:left;
     padding:3px;
@@ -236,6 +238,7 @@ label.error.field-name {
 
   .site-count {
     padding:3px;
+    padding-left: 133px
   }
 
   .refine-popup.box {

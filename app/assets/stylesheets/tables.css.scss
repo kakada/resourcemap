@@ -354,7 +354,7 @@
     background: transparent;
     margin-top: -3px;
     margin-left:4px;
-    height: 35px;
+    height: 40px;
 
     &.expanded {
       border-right: 0px;
@@ -483,7 +483,7 @@ body.fullscreen {
       height: 91%;
     }
     .cheight.tablescroll{ height: 498px !important; }
-    .cheight#map{ height: 660px !important; }
+    .cheight#map{ height: 567px !important; }
   }
 
   @media screen and (min-height: 700px) {

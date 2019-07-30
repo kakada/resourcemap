@@ -1,8 +1,7 @@
 /ko if: !currentCollection() && !editingSite()
 -# Collections
 .tableheader.expanded
-  %img{ko(attr: {src: "'#{InsteddRails.url}/theme/images/header/logos/resourceMap.png'"}), style: "margin-top: 5px;", width: 100}
-  -# .title Agri-SMEs Linkages
+  %img{src: "/assets/Agri-SME_Linkage.png", width: 170}
   .mapheader.right
     %button.icon_button.ftable.right{ko(click: '$root.showTable', css: "{active: !$root.showingMap()}")}
     %button.icon_button.fmap.right{ko(click: '$root.showMap', css: "{active: $root.showingMap()}")}
