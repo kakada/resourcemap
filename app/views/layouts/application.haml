@@ -19,8 +19,7 @@
   %span Agri-SMEs Linkages
 
 - content_for :navigation do
-  -# = section _("Home"), root_path(explicit: true), :home
-  = section _("Collections"), collections_path, :collections
+  = section _("Home"), collections_path, :collections
   - if user_signed_in?
     - if !current_user.is_guest
       = section _("Activity"), activities_path, :activities
@@ -28,9 +27,7 @@
         = section _("SMS Gateways"), gateways_path, :gateways
       - if current_user.is_super_user
         = section _("Quota"), quotas_path, :quotas
-  -# = section "Tour", '', :tour
-  -# = section "Community", '', :community
-  -# = section "Help", '', :help
+
 - content_for :right_menu do
   %ul.RightMenu
     - if current_user && !current_user.is_guest
@@ -50,10 +47,12 @@
       %li
         = link_to '', edit_user_registration_path, class: 'fsettings'
     - else
-      -# %li
-        -# = link_to _("Create account"), guisso_sign_up_path_for(:user), class: 'fedit'
       %li
         = link_to _("Log in"), guisso_sign_in_path_for(:user), class: 'fuser'
+
+- content_for :app_logo do
+  %a{href: '/'}
+    = image_tag 'Agri-SME_Linkage.png', alt: 'Agri SME Linkage Logo', width: 170
 
 - content_for :footer_links do
   %a{:href => root_path} Home

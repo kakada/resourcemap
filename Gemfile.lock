@@ -53,6 +53,16 @@ GIT
       rails (>= 3.2.0)
 
 GIT
+  remote: https://github.com/kakada/platform-common-rails.git
+  revision: 5c4778a9a96be5b216e2c4e767662c8302f83279
+  branch: master
+  specs:
+    instedd-rails (0.0.27)
+      breadcrumbs_on_rails (>= 2.2.0)
+      haml-rails
+      rails (>= 3.0)
+
+GIT
   remote: https://github.com/manastech/dist.git
   revision: 570e2bd1c90104df8880edc93cf8a1a659fcf093
   specs:
@@ -256,10 +266,6 @@ GEM
     ice_cube (0.12.1)
     includes-count (0.2)
       activerecord
-    instedd-rails (0.0.24)
-      breadcrumbs_on_rails (>= 2.2.0)
-      haml-rails
-      rails (>= 3.0)
     intercom-rails (0.4.0)
       activesupport (> 3.0)
     jasmine (2.7.0)
@@ -544,7 +550,7 @@ DEPENDENCIES
   haml-rails (~> 0.4)
   ice_cube
   includes-count
-  instedd-rails (~> 0.0.24)
+  instedd-rails!
   instedd_telemetry!
   intercom-rails
   jasmine (~> 2.7.0)
