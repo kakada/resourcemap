@@ -31,6 +31,7 @@ services:
       dockerfile: Dockerfile-dev
     environment:
       RAILS_ENV:
+      NOREPLY_EMAIL: 'noreply@resourcemap.instedd.org'
       ELASTICSEARCH_URL: 'elasticsearch:9200'
       REDIS_URL: 'redis://redis:6379'
       DATABASE_HOST: 'db'
@@ -51,7 +52,7 @@ services:
       - selenium
       - resque
       - resque_scheduler
-    command: rails server -b 0.0.0.0
+    command: bundle exec rails server -b 0.0.0.0
     ports:
       - 3000:3000
 

@@ -32,6 +32,7 @@ services:
     image: instedd/resourcemap:dockerfile
     environment:
       RAILS_ENV: production
+      NOREPLY_EMAIL: 'noreply@resourcemap.instedd.org'
       ELASTICSEARCH_URL: 'elasticsearch:9200'
       REDIS_URL: 'redis://redis:6379'
       DATABASE_URL: 'mysql2://resourcemap:resourcemap@db:3306/resourcemap'

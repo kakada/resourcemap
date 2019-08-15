@@ -6,6 +6,7 @@ services:
       - ~/cache/bundle:/usr/local/bundle
     environment:
       RAILS_ENV:
+      NOREPLY_EMAIL: 'noreply@resourcemap.instedd.org'
       ELASTICSEARCH_URL: 'elasticsearch:9200'
       REDIS_URL: 'redis://redis:6379'
       DATABASE_HOST: 'db'
