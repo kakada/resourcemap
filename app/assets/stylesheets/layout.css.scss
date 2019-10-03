@@ -17,6 +17,7 @@ body.fullscreen #container {
 }
 #header {
   width: 100%;
+  margin-bottom: 0px;
 
   .left {
     width: 25%;
@@ -107,7 +108,7 @@ body.fullscreen #container {
 }
 
 .delete-collection-or-sites {
-  height:60px;
+  height:30px;
 }
 
 .delete-collection-or-sites .left {
@@ -705,6 +706,10 @@ select.compare {
 
 .RightMenu.right #User{
   margin-top: 0px !important;
+}
+
+#footer-span {
+  height: 40px;
 }
 
 #footer-container {

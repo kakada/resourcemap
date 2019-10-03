@@ -34,7 +34,7 @@
   -# Collection sites
   /ko if: !editingSite()
   /ko with: currentCollection
-  .tableheader
+  .tableheader.line-clamp
     .title
       - if can? :index, Collection
         %button.pback{ko(click: '$root.goToRoot'), type: 'button'}
@@ -258,6 +258,7 @@
         /ko if: $root.currentCollection().canDeleteSites()
         = link_to _('Delete Site'), 'javascript:void()', class: 'icon fdelete black', 'data-bind' => kov(click: '$root.deleteSite')
         //ko
+      %div.insteddPlatform
     //ko
   //ko
   //ko

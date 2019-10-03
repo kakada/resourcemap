@@ -138,7 +138,9 @@
           width:230px;
           float:left;
           margin-top:6px;
+          margin-bottom: 6px;
           margin-left:4px;
+          padding-bottom: 2px;
           overflow: hidden;
           text-overflow:ellipsis;
           line-height: 20px;
@@ -353,8 +355,9 @@
   .tableheader {
     background: transparent;
     margin-top: -3px;
+    margin-bottom: 3px;
     margin-left:4px;
-    height: 40px;
+    height: auto;
 
     &.expanded {
       border-right: 0px;
@@ -365,6 +368,12 @@
       }
     }
   }
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+  }
+
   .tablescroll {
     background:url(#{$InsteddRailsUrl + "/theme/images/interface/backtd.png"}) repeat-x left 0px #ffffff;
     padding-top: 1px;
@@ -387,16 +396,18 @@
 
 .tableheader {
   background:url(#{$InsteddRailsUrl + "/theme/images/interface/backtd.png"}) repeat-x left 32px #ffffff;
-  height:40px;
+  height:50px;
   z-index:1;
 
   & > div.title {
-    white-space: nowrap;
+    white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
     padding-right: 25px;
-    line-height: 30px;
+    moz-padding-bottom: 6px;
+    line-height: 20px;
+    width: 270px;
 
     button.fconfiguration {
       position: absolute;
@@ -488,9 +499,9 @@ body.fullscreen {
 
   @media screen and (min-height: 700px) {
     #collections-main {
-      height: 92%;
+      height: 91%;
     }
-    .cheight.tablescroll{ height: 550px !important; }
+    .cheight.tablescroll { height: 530px !important; }
     .cheight#map { height: 615px !important; }
   }
 
@@ -516,7 +527,13 @@ body.fullscreen {
 
 @-moz-document url-prefix() {
   @media screen and (min-height: 700px) {
-    body.fullscreen .cheight.tablescroll, body.fullscreen .cheight#map { height: 530px !important; }
+    body.fullscreen .cheight.tablescroll, body.fullscreen .cheight#map { height: 615px !important; }
+  }
+}
+
+@-moz-document url-prefix() {
+  @media screen and (min-height: 700px) {
+    .tableheader > div.title { padding-bottom: 4px !important; }
   }
 }
 
